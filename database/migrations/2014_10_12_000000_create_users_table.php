@@ -18,9 +18,12 @@ class CreateUsersTable extends Migration {
 			$table->string('name');
 			$table->string('email')->unique();
 			$table->string('password', 60);
+			$table->string('role',60);
 			$table->rememberToken();
 			$table->timestamps();
 		});
+		$data=array("name" =>"admin","email" =>"adminname@gmail.com","password"=>bcrypt("admin123"),"role"=> "admin" );
+		User::create($data);
 	}
 
 	/**
